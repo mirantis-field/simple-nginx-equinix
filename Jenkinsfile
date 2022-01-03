@@ -18,7 +18,7 @@ IMAGE_NAMESPACE_PROD = "${USERNAME}-prod"
 KUBERNETES_NAMESPACE_DEV = "${IMAGE_NAMESPACE_DEV}"
 KUBERNETES_NAMESPACE_PROD = "${IMAGE_NAMESPACE_PROD}"
 APPLICATION_DOMAIN = "${USERNAME}.${TARGET_CLUSTER_KUBE_DOMAIN_NAME}"
-//variables that change on every execution
+//variables that change on every execution test
 def IMAGE_TAG = LocalDateTime.now()
 IMAGE_TAG = IMAGE_TAG.format(DateTimeFormatter.ofPattern("yyyyMMddHHmm"))
 
