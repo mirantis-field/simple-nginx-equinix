@@ -1,0 +1,6 @@
+version: "3.6"
+services:
+  {{ .Name }}:
+    build: {{ .Name }}
+    ports:
+      - {{ .Parameters.externalPort }}:80

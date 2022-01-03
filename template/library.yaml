@@ -1,0 +1,75 @@
+apiVersion: v1alpha1
+kind: RepositoryContent
+services:
+- apiVersion: v1alpha1
+  kind: ServicesTemplate
+  metadata:
+    name: simple-nginx-db
+    platforms:
+    - linux
+  spec:
+    description: PostgreSQL database
+    icon: https://docker-application-template.s3.amazonaws.com/assets/postgres.png
+    parameters:
+    - defaultValue: "11.0-alpine"
+      description: Version
+      name: postgresVersion
+      type: enum
+      values:
+      - description: "11.3-alpine"
+        value: "11.3-alpine"
+      - description: "11.2-alpine"
+        value: "11.2-alpine"
+      - description: "11.1-alpine"
+        value: "11.1-alpine"
+      - description: "11.0-alpine"
+        value: "11.0-alpine"
+    source:
+      image: <registry fqdn>/app-template/simple-nginx-db:latest # <--- replace <registry fqdn>
+    title: PostgreSQL 
+- apiVersion: v1alpha1
+  kind: ServiceTemplate
+  metadata:
+    creationTimestamp: "0001-01-01T00:00:00Z"
+    name: simple-nginx-front-end
+    platforms:
+    - linux
+  spec:
+    description: NGINX front-end
+    icon: https://docker-application-template.s3.amazonaws.com/assets/nginx.png
+    parameters:
+    - defaultValue: "1.15-alpine"
+      description: Version
+      name: nginxVersion
+      type: enum
+      values:
+      - description: "1.17-alpine"
+        value: "1.17-alpine"
+      - description: "1.16-alpine"
+        value: "1.16-alpine"
+      - description: "1.15-alpine"
+        value: "1.15-alpine"
+    - defaultValue: "8080"
+      description: External port
+      name: externalPort
+      type: hostPort
+    source:
+      image: <registry fqdn>/app-template/simple-nginx-front-end:latest # <--- replace <registry fqdn>
+    title: NGINX
+templates:
+  - apiVersion: v1alpha1
+    kind: ApplicationTemplate
+    metadata:
+      name: simple-nginx
+      platforms:
+      - linux
+    spec:
+      title: Simple NGINX / PostgreSQL Application
+      description: Template for a NGINX application with a PostgreSQL database
+      services:
+      - name: front-end
+        parameters:
+          externalPort: "8080"
+        serviceId: simple-nginx-front-end
+      - name: db
+        serviceId: simple-nginx-db

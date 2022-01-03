@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-nginx
+spec:
+  selector:
+    matchLabels:
+      app: simple-nginx
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: simple-nginx
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: beta.kubernetes.io/os
+                    operator: In
+                    values:
+                      - linux
+      containers:
+        - name: simple-nginx-fe
+          image: ${REGISTRY_HOSTNAME}/${IMAGE_NAMESPACE}/${IMAGE_REPOSITORY}:${IMAGE_TAG}
+          ports:
+            - containerPort: 80

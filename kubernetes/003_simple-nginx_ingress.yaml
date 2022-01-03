@@ -1,0 +1,68 @@
+# apiVersion: extensions/v1beta1
+# kind: Ingress
+# metadata:
+#  name: simple-nginx
+#  annotations:
+#    kubernetes.io/ingress.class: "nginx"
+# spec:
+#  rules:
+#    - host: ${APPLICATION_FQDN}
+#      http:
+#       paths:
+#       - path: /
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: simple-nginx
+#             port:
+#               number: 8080
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: simple-nginx
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - host: ${APPLICATION_FQDN}
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: simple-nginx
+            port:
+              number: 80
+    #  http:
+    #    paths:
+    #      - backend:
+    #          serviceName: simple-nginx
+    #          servicePort: 80
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: jenkins
+#   namespace: jenkins
+#   annotations:
+#     kubernetes.io/ingress.class: "nginx"
+# #    cert-manager.io/cluster-issuer: "letsencrypt-staging"
+#     cert-manager.io/cluster-issuer: "letsencrypt-prod"
+# spec:
+#   tls:
+#   - hosts:
+#     - jenkins.prod.presales.demo.mirantis.com
+#     secretName: jenkins-jnlp-tls
+#   rules:
+#   - host: jenkins.prod.presales.demo.mirantis.com
+#     http:
+#       paths:
+#       - path: /
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: jenkins
+#             port:
+#               number: 8080

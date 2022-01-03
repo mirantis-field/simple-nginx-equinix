@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+  server:
+    deploy:
+      labels:
+        com.docker.lb.hosts: ${APPLICATION_FQDN}
+        com.docker.lb.network: ${USERNAME}-ingress
+        com.docker.lb.port: 80
+        com.docker.ucp.access.label: ${UCP_COLLECTION_PATH}
+      placement:
+        constraints:
+          - "node.labels.com.docker.ucp.collection.system!=true"
+          - "node.labels.com.docker.ucp.collection.swarm==true"
+          - "node.labels.com.docker.ucp.orchestrator.swarm==true"
+    image: ${REGISTRY_HOSTNAME}/${IMAGE_NAMESPACE}/${IMAGE_REPOSITORY}:${IMAGE_TAG}
+    networks:
+      - ingress
+
+networks:
+  ingress:
+    external: true
+    name: ${USERNAME}-ingress

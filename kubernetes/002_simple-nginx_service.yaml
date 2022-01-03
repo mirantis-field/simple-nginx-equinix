@@ -1,0 +1,9 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: simple-nginx
+spec:
+  selector:
+    app: simple-nginx
+  ports:
+    - port: 80

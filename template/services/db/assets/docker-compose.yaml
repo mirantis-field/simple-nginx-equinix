@@ -1,0 +1,8 @@
+version: "3.6"
+services:
+  {{ .Name }}:
+    image: postgres:{{ .Parameters.postgresVersion }}
+    restart: always
+    environment:
+      POSTGRES_USER: "docker"
+      POSTGRES_PASSWORD: "changeme!"
