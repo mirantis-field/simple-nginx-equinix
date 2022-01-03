@@ -53,7 +53,7 @@ node {
 
         //def scan_result_response = httpRequest acceptType: 'APPLICATION_JSON', authentication: TARGET_CLUSTER['REGISTRY_CREDENTIALS_ID'], httpMode: 'GET', ignoreSslErrors: true, responseHandle: 'LEAVE_OPEN', url: "${TARGET_CLUSTER['REGISTRY_URI']}/api/v0/imagescan/scansummary/repositories/${IMAGE_NAMESPACE_DEV}/${IMAGE_REPOSITORY}/${IMAGE_TAG}"
 
-        def responsetest =         httpRequest acceptType: 'APPLICATION_JSON', authentication: 'MSRequinixProd', contentType: 'APPLICATION_JSON', httpMode: 'GET', ignoreSslErrors: true, responseHandle: 'NONE', url: "${TARGET_CLUSTER_REGISTRY_URI}/api/v0/imagescan/scansummary/repositories/${IMAGE_NAMESPACE_DEV}/${IMAGE_REPOSITORY}/2"
+        def responsetest =         httpRequest acceptType: 'APPLICATION_JSON', authentication: 'MSRequinixProd', contentType: 'APPLICATION_JSON', httpMode: 'GET', ignoreSslErrors: true, responseHandle: 'NONE', url: "${TARGET_CLUSTER_REGISTRY_URI}/api/v0/imagescan/scansummary/repositories/${IMAGE_NAMESPACE_DEV}/${IMAGE_REPOSITORY}/2202201031743"
         println(responsetest.content)
 
         def scan_result
