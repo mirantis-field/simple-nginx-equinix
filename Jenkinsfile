@@ -61,7 +61,7 @@ node {
                 println('Response: ' + scan_result)
                 error('More than one imagescan returned, please narrow your search parameters')
             }
-
+            println('Response: ' + scan_result)
             scan_result = scan_result[0]
 
             if (!scan_result.check_completed_at.equals("0001-01-01T00:00:00Z")) {
