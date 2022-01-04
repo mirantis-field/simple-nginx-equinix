@@ -2,11 +2,8 @@
 import java.time.LocalDateTime
 import java.time.*
 import java.time.format.DateTimeFormatter
-<<<<<<< HEAD
 //webhook test 6
-=======
 //webhook test 5
->>>>>>> 4a80addfe9f2a6b47346a53715043650ac682a5e
 //Variables that are specefic for each user - to be changed
 USERNAME = "wsoualhi"
 //variables that are same for everyone 
