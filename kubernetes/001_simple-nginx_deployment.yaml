@@ -25,4 +25,4 @@ spec:
         - name: simple-nginx-fe
           image: ${REGISTRY_HOSTNAME}/${IMAGE_NAMESPACE}/${IMAGE_REPOSITORY}:${IMAGE_TAG}
           ports:
-            - containerPort: 80
+            - containerPort: 8080
