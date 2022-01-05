@@ -4,7 +4,7 @@ import java.time.*
 import java.time.format.DateTimeFormatter
 //webhook test 6
 //Variables that are specefic for each user - to be changed
-USERNAME = "wsoualhi"
+USERNAME = "smalikkal"
 //variables that are same for everyone 
 IMAGE_REPOSITORY = "simple-nginx"
 KUBERNETES_INGRESS = "ingress"
