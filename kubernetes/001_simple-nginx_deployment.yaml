@@ -26,10 +26,3 @@ spec:
           image: ${REGISTRY_HOSTNAME}/${IMAGE_NAMESPACE}/${IMAGE_REPOSITORY}:${IMAGE_TAG}
           ports:
             - containerPort: 80
-          readinessProbe:
-            httpGet:
-              scheme: HTTP
-              path: /index.html
-              port: 80
-            initialDelaySeconds: 10
-            periodSeconds: 5
