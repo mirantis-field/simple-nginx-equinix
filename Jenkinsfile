@@ -4,10 +4,10 @@ import java.time.*
 import java.time.format.DateTimeFormatter
 //Variables that are specefic for each user - to be changed
 USERNAME = "blieberman"
-//variables that are same for everyone 
+//variables that are same for everyone
 IMAGE_REPOSITORY = "simple-nginx"
 KUBERNETES_INGRESS = "ingress"
-//Prod variables 
+//Prod variables
 TARGET_CLUSTER_REGISTRY_URI = 'https://registry.prod.equinix.presales.demo.mirantis.com'
 TARGET_CLUSTER_REGISTRY_HOSTNAME = 'registry.prod.equinix.presales.demo.mirantis.com'
 TARGET_CLUSTER_KUBE_DOMAIN_NAME = "prod.presales.demo.mirantis.com"
