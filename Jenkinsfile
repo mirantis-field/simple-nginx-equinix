@@ -8,7 +8,6 @@ USERNAME = "blieberman"
 IMAGE_REPOSITORY = "simple-nginx"
 KUBERNETES_INGRESS = "ingress"
 //Prod variables
-// Comment for demo
 TARGET_CLUSTER_REGISTRY_URI = 'https://registry.prod.equinix.presales.demo.mirantis.com'
 TARGET_CLUSTER_REGISTRY_HOSTNAME = 'registry.prod.equinix.presales.demo.mirantis.com'
 TARGET_CLUSTER_KUBE_DOMAIN_NAME = "prod.presales.demo.mirantis.com"
